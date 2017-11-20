@@ -45,9 +45,6 @@
 	<!-- property-plcaeholder只能加载一次,故而都要写在一起 -->
 	<context:property-placeholder
 		location="classpath:jdbc.properties" />
-
-<!-- 	方面组件,拦截器 -->
-<!-- 	<import resource="spring-aop.xml"/> -->
-<!-- 	导入数据库配置 -->
-	<import resource="spring-database.xml" />
+	
+	<import resource="spring-dubbo.xml"/>
 </beans>

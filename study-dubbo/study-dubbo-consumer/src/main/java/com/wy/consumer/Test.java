@@ -16,6 +16,7 @@ public class Test {
 	private ITest itest;
 
 	public void test(String name) {
+		System.out.println(itest);
 		itest.test1(name);
 	}
 }

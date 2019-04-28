@@ -1,6 +1,8 @@
 package com.wy;
 
-import org.apache.dubbo.container.Main;
+import java.io.IOException;
+
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * @description 使用这种方式启动dubbo的时候,配置文件必须放在资源文件的META-INF下,且后缀必须是xml,名字随意
@@ -12,6 +14,15 @@ import org.apache.dubbo.container.Main;
 public class StudyDubboProviderApplication {
 
 	public static void main(String[] args) {
-		Main.main(args);
+		// Main.main(args);
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
+				new String[] { "spring-dubboProvider.xml" });
+		context.start();
+		try {
+			System.in.read();// 按任意键退出
+			context.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} 
 	}
 }

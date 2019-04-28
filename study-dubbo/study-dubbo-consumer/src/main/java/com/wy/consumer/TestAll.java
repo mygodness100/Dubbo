@@ -12,8 +12,10 @@ public class TestAll {
 
 	public static void main(String[] args) {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
-				"spring-dubboConsumer.xml");
+				new String[] { "spring-dubboConsumer.xml" });
+		context.start();
 		Test bean = context.getBean("test", Test.class);
+		System.out.println(bean);
 		bean.test("那是谁");
 		context.close();
 	}

@@ -1,7 +1,5 @@
 package com.wy.consumer;
 
-import org.apache.dubbo.config.annotation.Reference;
-
 import com.wy.interfaces.ITest;
 
 /**
@@ -12,7 +10,6 @@ import com.wy.interfaces.ITest;
  */
 public class Test {
 
-	@Reference(version = "1.0.0")
 	private ITest itest;
 
 	public void test(String name) {

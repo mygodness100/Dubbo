@@ -1,6 +1,9 @@
 package com.wy.consumer;
 
+import org.apache.log4j.Logger;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.wy.interfaces.ITest;
 
 /**
  * @description
@@ -10,13 +13,14 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class TestAll {
 
+	private static final Logger logger = Logger.getLogger(TestAll.class);
+
 	public static void main(String[] args) {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
 				new String[] { "spring-dubboConsumer.xml" });
 		context.start();
-		Test bean = context.getBean("test", Test.class);
-		System.out.println(bean);
-		bean.test("那是谁");
+		ITest bean = (ITest) context.getBean("testService");
+		logger.info(bean.test1("这是测试!!"));
 		context.close();
 	}
 }

@@ -14,15 +14,14 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class StudyDubboProviderApplication {
 
 	public static void main(String[] args) {
-		// Main.main(args);
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
-				new String[] { "spring-dubboProvider.xml" });
+				"spring-dubboProvider.xml");
 		context.start();
 		try {
 			System.in.read();// 按任意键退出
 			context.close();
 		} catch (IOException e) {
 			e.printStackTrace();
-		} 
+		}
 	}
 }
